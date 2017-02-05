@@ -1,10 +1,13 @@
 package com.example.myfirstapp;
 
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
@@ -13,6 +16,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Check if installed android version is sufficient
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.HONEYCOMB) {
+            // Notify the user via text box incompatible
+            ((EditText) findViewById(R.id.edit_message)).setText("Version not supported");
+        }
     }
 
     /**
