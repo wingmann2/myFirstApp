@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
     <EditText
+        style="@style/Numbers"
         android:id="@+id/edit_message"
         android:layout_weight="1"
         android:layout_width="0dp"

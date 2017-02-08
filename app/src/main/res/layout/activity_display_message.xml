@@ -10,4 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.myfirstapp.DisplayMessageActivity">
 
+    <!-- <TextView
+        style="@style/CodeFont"
+        android:text="@string/hello" /> -->
+
 </RelativeLayout>
