@@ -3,4 +3,8 @@
     <string name="edit_message">Enter a number</string>
     <string name="button_send">Send</string>
     <string name="hello">hello world</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="headline_blank_fragment">Headline blank fragment</string>
+    <string name="article_blank_fragment">Article blank fragment</string>
 </resources>

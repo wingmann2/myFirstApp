@@ -15,12 +15,40 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         // Check if installed android version is sufficient
         if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.HONEYCOMB) {
             // Notify the user via text box incompatible
             ((EditText) findViewById(R.id.edit_message)).setText("Version not supported");
+        }
+
+        // Lesson 1 - adding text send and recieve activity
+        setContentView(R.layout.activity_main);
+
+        // Lesson 2 - Fragment static add
+        //setContentView(R.layout.news_articles);
+
+        // Check that the activity is using the layout version with
+        // the fragment_container FrameLayout
+        if (findViewById(R.id.fragment_container) != null) {
+
+            // However, if we're being restored from a previous state,
+            // then we we don't need to do anything and should return or else
+            // we could end up with overlapping fragments.
+            if (savedInstanceState != null) {
+                return;
+            }
+
+            // Create a new Fragment to be placed in the activity layout
+            HeadlinesFragment firstFragment = new HeadlinesFragment();
+
+            // In case this activity was started with special instructions from an
+            // Intent, pass the Intent's extras to the fragment as arguments
+            firstFragment.setArguments(getIntent().getExtras());
+
+            // Add the fragment to the 'fragment_container' FrameLayout
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragment_container, firstFragment).commit();
         }
     }
 
